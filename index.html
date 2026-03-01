@@ -3,22 +3,19 @@
 <body>
     <div id="app"></div>
 
-    <script type="text/javascript">
-        // 1. Select the div element with 'app' id
-        const app = document.getElementById('app');
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-        // 2. Create a new H1 element
-        const header = document.createElement('h1');
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-        // 3. Create a new text node
-        const text = 'Develop. Preview. Ship.';
-        const headerContent = document.createTextNode(text);
-
-        // 4. Append the text to the H1 element
-        header.appendChild(headerContent);
-
-        // 5. Place the H1 element inside the div
-        app.appendChild(header);
+    <script type="text/jsx">
+      const domNode = document.getElementById('app');
+      
+      // Create a React root
+      const root = ReactDOM.createRoot(domNode);
+      
+      // Render the UI declaratively using JSX
+      root.render(<h1>Develop. Preview. Ship.</h1>);
     </script>
 </body>
 
