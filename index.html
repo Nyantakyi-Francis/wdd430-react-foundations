@@ -2,7 +2,6 @@
 
 <body>
     <div id="app"></div>
-
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -10,18 +9,26 @@
     <script type="text/jsx">
       const app = document.getElementById('app');
 
-      // 1. The Header component now accepts 'props' 
-      function Header(props) {
-        // We use {props.title} to display the data passed to it
-        return <h1>{props.title}</h1>;
+      // 1. Component using destructuring to get 'title' from props
+      function Header({ title }) {
+        // Curly braces {} let us use JavaScript variables inside JSX
+        return <h1>{title ? title : 'Default Title'}</h1>;
       }
 
       function HomePage() {
+        const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+
         return (
           <div>
-            {/* 2. Pass a 'title' prop to the Header component  */}
-            <Header title="React " />
-            <Header title="A New Title" />
+            {/* 2. Passing a string as a prop */}
+            <Header title="Develop. Preview. Ship." />
+            
+            {/* 3. Iterating through a list using map() */}
+            <ul>
+              {names.map((name) => (
+                <li key={name}>{name}</li>
+              ))}
+            </ul>
           </div>
         );
       }
