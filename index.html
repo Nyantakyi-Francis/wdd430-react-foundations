@@ -5,17 +5,29 @@
 
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/jsx">
-      const domNode = document.getElementById('app');
-      
-      // Create a React root
-      const root = ReactDOM.createRoot(domNode);
-      
-      // Render the UI declaratively using JSX
-      root.render(<h1>Develop. Preview. Ship.</h1>);
+      const app = document.getElementById('app');
+
+      // 1. The Header component now accepts 'props' 
+      function Header(props) {
+        // We use {props.title} to display the data passed to it
+        return <h1>{props.title}</h1>;
+      }
+
+      function HomePage() {
+        return (
+          <div>
+            {/* 2. Pass a 'title' prop to the Header component  */}
+            <Header title="React " />
+            <Header title="A New Title" />
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(app);
+      root.render(<HomePage />);
     </script>
 </body>
 
